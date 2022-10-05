@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+</head>
+
+<body>
+    <div id="root"></div>
+
+
+    <script type="text/babel">
+        const courses = [
+            {
+                id: 1,
+                title: 'mot hai ba bon nam',
+                image: 'https://cdn.tgdd.vn/Files/2014/08/28/562705/nhung-luu-y-ve-suc-khoe-cho-fan-bong-da-15-760x367.jpg',
+                description: 'Sau khoảng 4 tháng gia nhập Pau, cầu thủ Việt Nam chưa thể hiện được nhiều về mặt chuyên môn trong những lần có cơ hội ra sân.',
+                count: 1000
+            },
+            {
+                id: 2,
+                title: 'mot hai ba bon nam sau bay tam',
+                image: 'https://cdn.baogiaothong.vn/upload/images/2022-3/article_img/2022-09-29/img-bgt-2021-quang-hai-1664441478-width898height596.jpg',
+                description: 'rên tờ La Rep, cựu cầu thủ Pau FC Jacky Leglib cho rằng mọi thứ không dễ dàng với Quang Hải thời điểm này.',
+                count: 2000
+            },
+            {
+                id: 3,
+                title: 'mot hai ba bon namsau bay tam chin muoi',
+                image: 'https://cdn.tgdd.vn/Files/2014/08/28/562705/nhung-luu-y-ve-suc-khoe-cho-fan-bong-da-15-760x367.jpg',
+                description: 'Cậu ấy là một dấu hỏi lớn. Kể cả khi Hải tuân thủ mọi chiến thuật, cậu ấy vẫn cần học thêm tiếng và phải thích nghi với bóng đá châu Âu.',
+                count: 3000
+            }
+        ]
+
+        // function PostItem() {
+        //     return (
+        //         <div className="post-list">
+        //             <div className="post-item">
+        //                 <img src="http://hanoimoi.com.vn/Uploads/images/tuandiep/2022/04/28/GSS6MXDHX5LA3C3GBJ3ZPMQCIE.jpg"
+        //                     alt="ho tro render nhieu phan tu cung luc" />
+        //                 <h2 className="post-title">Hoc ReactJS</h2>
+        //                 <p className="post-dev">Kiến thức đâu ra</p>
+        //             </div>
+        //         </div>
+        //     )
+        // }
+
+        
+        function CoursesItem({course, onClick}) {
+        return (
+            <div>
+                <h2 onClick={() => onClick(course)}>{course.title}</h2>
+                <img src={course.image} />
+                <p>{course.description}</p>
+                <p>{course.count}</p>
+            </div>
+        )}
+        // const courses = [
+        //     {
+        //         name: 'ReactJS'
+
+        //     },
+        //     {
+        //         name: 'Ruby'
+        //     },
+        //     {
+        //         name: 'HTML, CSS'
+        //     }
+        // ]
+
+        function App() {
+            const handleClick = (course) => {
+                console.log(course.title)
+            }
+
+            return (
+                <div id="wrapper">
+                    {courses.map(course => (
+                        <CoursesItem 
+                        key= {course.id}
+                        course = {course}
+                        onClick = {handleClick}
+                        // title={course.title}
+                        // image={course.image}
+                        // description={course.description}
+                        // count={course.count}
+                        />
+                    ))}
+                </div>
+            )
+        }
+
+        // const h1React = React.createElement('h1', {
+        //     title: 'Hello',
+        //     className: 'heading'
+        // }, 'Hello Guy!')
+
+        // const app = (
+
+        // )
+
+        // React.fragment: ho tro render nhieu phan tu cung luc
+        // const jsx = <ul>
+        //     {courses.map(courses => 
+        //             <li>{courses.name}</li>
+        //         )}
+        //  </ul>
+
+        // const ul = <ul>
+        //     <li>Javascrip</li>
+        //     <li>PHP</li>
+        // </ul>
+        // React.createElement(
+        //     'ul',
+        //     null,
+        //     // {
+        //     //     id: 'ul-id',
+        //     //     style: 'color: #fff; front-size: 30px' 
+        //     // },
+        //     React.createEleme nt('li', null, 'Javascrip'),
+        //     React.createElement('li', null, 'PHP')
+        // )
+        //const container = document.getElementById('root')
+
+        // ReactDOM.render(h1React, root)
+        //ReactDOM.render(ul, root)
+
+        const root = ReactDOM.createRoot(document.getElementById('root'))
+        root.render(<App />)
+    </script>
+</body>
+
+</html>

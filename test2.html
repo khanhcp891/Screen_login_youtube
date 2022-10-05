@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        function Show() {
+            return (
+                <div class="container">
+                    <form class="form" id="login">
+                        <h1 class="form_title">Log in</h1>
+                        <div class="form_title2">Continue to YouTube</div>
+                        <div class="form_input-group">
+                            <input type="text" class="form_input" autofocus placeholder="Email or phone number"/>
+                                <p class="form_text">
+                                    <a href="#" class="form_link">Forgot your email address?</a>
+                                </p>
+                        </div>
+                        <p class="form_text2">This is not your computer? Use Guest mode to log in privately.
+                            <a href="#" class="form_link_looking_infomation">looking for more information</a>
+                        </p>
+
+                        <div class="form_text3">
+                            <a id="linkCreatAccount" href="#" class="form_link_create_account">Create Account</a>
+                            <button class="form_button" type="submit">Next</button>
+
+                        </div>
+                    </form>
+                </div>
+            )
+        }
+
+        function App(){
+            return (
+                <Show />
+            )
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'))
+        root.render(<App />)
+    </script>
+</body>
+
+</html>
